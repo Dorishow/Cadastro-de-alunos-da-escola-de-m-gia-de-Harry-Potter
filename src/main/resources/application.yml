@@ -1,0 +1,21 @@
+spring:
+
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password:
+    driverClassName: org.h2.Driver
+
+    jpa:
+      database-platform: org.hibernate.dialect.H2Dialect
+      properties.hibernate.show_sql: true
+      properties.hibernate.format_sql: true
+
+    h2:
+      console:
+        enabled: true
+        path: /h2
+
+cliente:
+  casainfobychavecasa:
+    url: https://api-harrypotter.herokuapp.com/house/601c1a64-0b7a-11ec-9a03-0242ac130003
