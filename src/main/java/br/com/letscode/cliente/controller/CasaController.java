@@ -1,6 +1,7 @@
 package br.com.letscode.cliente.controller;
 
 import br.com.letscode.cliente.model.casa.CasaInfo;
+import br.com.letscode.cliente.model.casa.dto.SorteioResponse;
 import br.com.letscode.cliente.service.client.CasaInfoService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +19,7 @@ public class CasaController {
     }
 
     @GetMapping("/sortear")
-    public String sortearCasa(){
+    public SorteioResponse sortearCasa(){
         return casaInfoService.sortearCasa();
     }
 }
