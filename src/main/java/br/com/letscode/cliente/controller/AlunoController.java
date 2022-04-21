@@ -3,6 +3,7 @@ package br.com.letscode.cliente.controller;
 import br.com.letscode.cliente.model.aluno.dto.AlunoRequest;
 import br.com.letscode.cliente.model.aluno.dto.AlunoResponse;
 import br.com.letscode.cliente.service.AlunoService;
+import br.com.letscode.cliente.view.AlunoCasaView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,5 +24,10 @@ public class AlunoController {
     @PostMapping
     public AlunoResponse cadastrarAluno(@RequestBody AlunoRequest alunoRequest){
         return alunoService.cadastrarAluno(alunoRequest);
+    }
+
+    @GetMapping("{id}")
+    public AlunoCasaView alunoPorCasa(@PathVariable String id){
+        return alunoService.listarAlunoPorId(id);
     }
 }
