@@ -18,4 +18,4 @@ spring:
 
 cliente:
   casainfobychavecasa:
-    url: https://api-harrypotter.herokuapp.com/house/601c1a64-0b7a-11ec-9a03-0242ac130003
+    url: https://api-harrypotter.herokuapp.com/house/{chavecasa}
