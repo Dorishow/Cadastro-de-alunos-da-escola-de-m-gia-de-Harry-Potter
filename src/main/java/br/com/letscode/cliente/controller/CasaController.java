@@ -16,4 +16,9 @@ public class CasaController {
     public CasaInfo listarCasaInfoById(@PathVariable String id){
         return casaInfoService.listarCasaInfo(id);
     }
+
+    @GetMapping("/sortear")
+    public String sortearCasa(){
+        return casaInfoService.sortearCasa();
+    }
 }

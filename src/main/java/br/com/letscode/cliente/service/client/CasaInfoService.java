@@ -10,7 +10,10 @@ import org.springframework.web.client.RestTemplate;
 public class CasaInfoService {
 
     @Value("${cliente.casainfobychavecasa.url}")
-    private String url;
+    private String urlCasaInfo;
+
+    @Value("${cliente.sortearcasa.url}")
+    private String urlSortearCasa;
 
     public CasaInfo listarCasaInfo(String chavecasa) {
 
@@ -20,12 +23,28 @@ public class CasaInfoService {
         HttpEntity<?> entity = new HttpEntity<>(headers);
         ResponseEntity<CasaInfo> casaInfoResponseEntity =
                 restTemplate.exchange(
-                        url,
+                        urlCasaInfo,
                         HttpMethod.GET,
                         entity,
                         CasaInfo.class, chavecasa
                 );
         return casaInfoResponseEntity.getBody();
 
+    }
+
+    public String sortearCasa() {
+
+        RestTemplate restTemplate = new RestTemplate();
+        HttpHeaders headers = new HttpHeaders();
+        headers.set(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON_VALUE);
+        HttpEntity<?> entity = new HttpEntity<>(headers);
+        ResponseEntity<String> casaInfoResponseEntity =
+                restTemplate.exchange(
+                        urlSortearCasa,
+                        HttpMethod.GET,
+                        entity,
+                        String.class
+                );
+        return casaInfoResponseEntity.getBody();
     }
 }

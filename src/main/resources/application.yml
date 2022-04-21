@@ -19,3 +19,5 @@ spring:
 cliente:
   casainfobychavecasa:
     url: https://api-harrypotter.herokuapp.com/house/{chavecasa}
+  sortearcasa:
+    url: https://api-harrypotter.herokuapp.com/sortinghat
