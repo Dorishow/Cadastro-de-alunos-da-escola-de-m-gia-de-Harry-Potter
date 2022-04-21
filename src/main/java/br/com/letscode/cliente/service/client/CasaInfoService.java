@@ -1,6 +1,7 @@
 package br.com.letscode.cliente.service.client;
 
 import br.com.letscode.cliente.model.casa.CasaInfo;
+import br.com.letscode.cliente.model.casa.dto.SorteioResponse;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
@@ -32,18 +33,18 @@ public class CasaInfoService {
 
     }
 
-    public String sortearCasa() {
+    public SorteioResponse sortearCasa() {
 
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
         headers.set(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON_VALUE);
         HttpEntity<?> entity = new HttpEntity<>(headers);
-        ResponseEntity<String> casaInfoResponseEntity =
+        ResponseEntity<SorteioResponse> casaInfoResponseEntity =
                 restTemplate.exchange(
                         urlSortearCasa,
                         HttpMethod.GET,
                         entity,
-                        String.class
+                        SorteioResponse.class
                 );
         return casaInfoResponseEntity.getBody();
     }
